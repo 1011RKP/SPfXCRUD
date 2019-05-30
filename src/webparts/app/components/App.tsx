@@ -18,44 +18,49 @@ export default class App extends React.Component<IAppProps, any> {
   }
 
   public render(): React.ReactElement<IAppProps> {
-    let cssURL = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css Jump ";
+    let cssURL = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
     SPComponentLoader.loadCss(cssURL);
 
     return (
       <div className="container">
-        <h2>Basic Table</h2>
-        <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
-        <table className="table">
-          <colgroup>
-            <col className="col-md-1" />
-            <col className="col-md-3" />
-            <col className="col-md-3" />
-            <col className="col-md-3" />
-            <col className="col-md-2" />
-          </colgroup>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Full Name</th>
-              <th>Title</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              this.state.items.map(item =>
-                <tr>
-                  <td>{item.ID}</td>
-                  <td>{item.Full_x0020_Name}</td>
-                  <td>{item.Title}</td>
-                  <td>{item.Email}</td>
-                  <td>{item.Phone_x0020_Number}</td>
-                </tr>
-              )
-            }
-          </tbody>
-        </table>
+        <div className="panel panel-primary">
+          <div className="panel-heading">
+            <h4>Team Members Using BootStrap React</h4>
+          </div>
+          <div className="panel-body">
+          </div>
+          <table className="table">
+            <colgroup>
+              <col className="col-md-1" />
+              <col className="col-md-3" />
+              <col className="col-md-3" />
+              <col className="col-md-3" />
+              <col className="col-md-2" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Title</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                this.state.items.map(item =>
+                  <tr>
+                    <td>{item.ID}</td>
+                    <td>{item.Full_x0020_Name}</td>
+                    <td>{item.Title}</td>
+                    <td>{item.Email}</td>
+                    <td>{item.Phone_x0020_Number}</td>
+                  </tr>
+                )
+              }
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
@@ -83,3 +88,5 @@ export default class App extends React.Component<IAppProps, any> {
   }
 }
 
+
+//// "cdnBasePath": "https://publiccdn.sharepointonline.com/incytedev.sharepoint.com/sites/CDN/CDN/Ratna/TeamMembers"
