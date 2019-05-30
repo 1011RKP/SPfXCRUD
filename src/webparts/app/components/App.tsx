@@ -5,6 +5,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import { ITeamMembersState } from "./IListState";
 import { ITeamMembers } from './IListProps';
 import { SPHttpClient, SPHttpClientResponse, SPHttpClientConfiguration } from '@microsoft/sp-http';
+import { SPComponentLoader } from "@microsoft/sp-loader";
 
 export default class App extends React.Component<IAppProps, any> {
 
@@ -17,35 +18,48 @@ export default class App extends React.Component<IAppProps, any> {
   }
 
   public render(): React.ReactElement<IAppProps> {
+    let cssURL = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css Jump ";
+    SPComponentLoader.loadCss(cssURL);
 
     return (
-      <div className={styles.app}>
-        <div className={styles.container}>
-          <div className={styles.row}>
-            <div className={styles.column}>
-              <div className={"ms-Grid"}>
-                <div className={"ms-Grid-row"}>
-                  {
-                    this.state.items.map(item =>
-                      <div className={"ms-Grid-col ms-sm6 ms-md6 ms-lg4"}>
-                        <div className={styles.column}>
-                          <label className="ms-Label ms-font-xxl">{item.ID}</label>
-                          <label className="ms-Label">{item.Full_x0020_Name}</label>
-                          <label className="ms-Label">{item.Title}</label>
-                          <label className="ms-Label">{item.Email}</label>
-                          <label className="ms-Label">{item.Phone_x0020_Number}</label>
-                        </div>
-                      </div>
-                    )
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="container">
+        <h2>Basic Table</h2>
+        <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+        <table className="table">
+          <colgroup>
+            <col className="col-md-1" />
+            <col className="col-md-3" />
+            <col className="col-md-3" />
+            <col className="col-md-3" />
+            <col className="col-md-2" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Full Name</th>
+              <th>Title</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              this.state.items.map(item =>
+                <tr>
+                  <td>{item.ID}</td>
+                  <td>{item.Full_x0020_Name}</td>
+                  <td>{item.Title}</td>
+                  <td>{item.Email}</td>
+                  <td>{item.Phone_x0020_Number}</td>
+                </tr>
+              )
+            }
+          </tbody>
+        </table>
       </div>
     );
   }
+
   public componentDidMount() {
     this._getTeamMembers();
     console.log(this.state);
@@ -60,8 +74,8 @@ export default class App extends React.Component<IAppProps, any> {
               console.log(responseJSON);
               this.setState({
                 //items: this.state.items.concat(responseJSON.value)
-                items:responseJSON.value
-            });
+                items: responseJSON.value
+              });
             }
           });
         }
@@ -69,21 +83,3 @@ export default class App extends React.Component<IAppProps, any> {
   }
 }
 
-// // return (
-// //   <div className={ styles.app }>
-// //     <div className={ styles.container }>
-// //       <div className={ styles.row }>
-// //         <div className={ styles.column }>
-// //           <span className={ styles.title }>Welcome to SharePoint!</span>
-// //           <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
-// //           <p className={ styles.description }>{escape(this.props.description)}</p>
-// //           <p className={ styles.description }>{escape(this.props.listName)}</p>
-// //           <p className={ styles.description }>{escape(this.props.siteUrl)}</p>
-// //           <a href="https://aka.ms/spfx" className={ styles.button }>
-// //             <span className={ styles.label }>Learn more</span>
-// //           </a>
-// //         </div>
-// //       </div>
-// //     </div>
-// //   </div>
-// // )
