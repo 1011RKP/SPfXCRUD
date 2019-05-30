@@ -1,7 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/write-manifests.schema.json",
-  "cdnBasePath": "https://incytedev.sharepoint.com/sites/CDN/CDN/Ratna/TeamMembers"
-  
+  "cdnBasePath": "https://publiccdn.sharepointonline.com/incytedev.sharepoint.com/sites/CDN/CDN/Ratna/TeamMembers"  
 }
 
 

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "demo-s-pf-x-client-side-solution",
+    "name": "SPFX-TeamMembers-APP",
     "id": "2add52be-4a7d-4fd1-ba62-54b253f69c23",
     "version": "1.1.0.0",
     "includeClientSideAssets": true,
     "isDomainIsolated": false
   },
   "paths": {
-    "zippedPackage": "solution/demo-s-pf-x.sppkg"
+    "zippedPackage": "solution/SPFX-TeamMembers-APP.sppkg"
   }
 }
