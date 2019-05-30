@@ -18,9 +18,12 @@ export default class App extends React.Component<IAppProps, any> {
   }
 
   public render(): React.ReactElement<IAppProps> {
-    let cssURL = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
-    SPComponentLoader.loadCss(cssURL);
-
+    let c1 = "https://incytedev.sharepoint.com/sites/Common/SiteAssets/CustomShell/CSS/bootstrapV3.3.7.css";
+    let c2 = "https://incytedev.sharepoint.com/sites/Common/SiteAssets/CustomShell/CSS/bootstrap-custom.css";
+    let c3 = "https://incytedev.sharepoint.com/sites/Common/SiteAssets/CustomShell/CSS/incyte-custom-style.css";
+    SPComponentLoader.loadCss(c1);
+    SPComponentLoader.loadCss(c2);
+    SPComponentLoader.loadCss(c3);
     return (
       <div className="container">
         <div className="panel panel-primary">
